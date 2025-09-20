@@ -16,6 +16,7 @@ sensors_data = {
 
 # Función que actualiza los sensores cada 1–5 segundos
 async def update_sensors():
+    
     while True:
         # Temperatura: entre 15 y 40 °C
         sensors_data["temperatura"]["value"] = round(random.uniform(15, 40), 2)
@@ -37,12 +38,12 @@ async def update_sensors():
         await asyncio.sleep(random.randint(1, 5))  # cambia dinámicamente cada 1–5 segundos
 
 # Endpoint: obtener todos los sensores
-@app.get("/sensors")
+@app.get("/all")
 async def get_sensors():
     return JSONResponse(content=sensors_data)
 
 # Endpoint: obtener un sensor específico
-@app.get("/sensors/{sensor_id}")
+@app.get("/{sensor_id}")
 async def get_sensor(sensor_id: str):
     if sensor_id not in sensors_data:
         return JSONResponse(content={"error": "Sensor no encontrado"}, status_code=404)

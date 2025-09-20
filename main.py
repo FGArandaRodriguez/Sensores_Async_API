@@ -16,7 +16,7 @@ app.add_middleware(
 )
 
 # Montamos la app de servicio_b en un sub-path
-app.mount("/api/sensores", sensores_app)
+app.mount("/api/sensors", sensores_app)
 
 # Endpoint básico de salud
 @app.get("/health")
