@@ -2,3 +2,4 @@ fastapi
 uvicorn[standard]
 gunicorn
 python-dotenv   # opcional si usas .env
+requests
